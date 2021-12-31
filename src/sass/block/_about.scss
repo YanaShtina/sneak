@@ -1,0 +1,111 @@
+@import "_mixins";
+.about{
+   position: relative;
+   background-color: var(--color-EastBay);
+      &__figure{
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 10;
+   }
+   &__container{
+      display: flex;
+      align-items: center;
+      height: 100%;
+      justify-content:space-between;
+      @include small-tablet{
+        
+         padding-top: 15px;
+        }
+   }
+   &__text{
+      position: relative;
+      z-index: 55;
+      width: 40%;
+      color: var(--color-white);
+      margin: 0;
+      @include small-tablet{
+         width: 100%;  
+           }
+   }
+   &__title{
+      margin: 0;
+     margin-bottom: var(--bottom-ofset);
+      font: var(--middle-high);
+      width: 37% ;
+      @include tablet{     
+         width: 100%;   
+   }
+   
+   }
+
+   &__desc{
+      font: var(--text-font);
+      margin-bottom: var(--bottom-ofset);
+   }
+
+   &__quote{
+      display: block;
+      margin-bottom: var(--bottom-ofset);
+      font: inherit;
+      &::before,
+      &::after{
+         display: none;
+      }
+   }
+
+   &__author{
+      display: flex;
+      justify-content: flex-end;
+      font: var(--h3-book);
+      font-style: normal;
+      align-items: center;
+      transform: translateX(5%);
+      &::before{
+         content: '';
+         display: inline-block;
+         background-color: var(--color-white);
+         width: 30px;
+         height: 3px;
+         margin-right: var(--bottom-ofset);
+      }
+      @include small-tablet{
+         transform: none;
+           }
+   }
+   &__img{
+      flex-shrink: 0;
+      position: relative;
+      width: 680px;
+      height: 580px;
+       @include tablet{
+            width: 580px;
+      }
+      @include small-tablet{
+      display: none;
+        }
+      img{
+         width: 100%;
+         height:100%;
+      }
+      &::before{
+         z-index: 5;
+         content: '';
+         position: absolute;
+         width: 600px;
+         height: 100%;
+         transform: skew(345deg) translateX(-84%);
+         //border: 40px solid red;
+         background-color: var(--color-EastBay);
+      }
+      &::after{
+         z-index: 5;
+         content: '';
+         position: absolute;
+         width: 600px;
+         height: 100%;
+        transform: skew(346deg) translate(-13% , 0%);
+        background-color: var(--color-EastBay);
+      }
+   }
+}

@@ -1,0 +1,42 @@
+@import "_mixins.scss";
+.team{
+   background-color: var(--color-EastBay);
+   position: relative;
+   padding: var(--big-ofset) 0;
+
+   &__figure{
+      position: absolute;
+      top: 0;
+      right: 0;
+   }
+
+   &__title{
+      color: var(--color-white)
+   }
+
+   &__list{
+      position: relative;
+      z-index: 5;
+      gap: var(--main-ofset) var(--bottom-ofset);
+   }
+
+   &__item{
+      grid-column: 4 span;
+     
+   }
+
+   &__img{
+      overflow: hidden;
+      border-radius: 4px;
+      margin-bottom: var(--bottom-ofset);
+   }
+   &__name{
+      color: var(--color-white);
+      font: var(--h3-book);
+      margin-bottom: var(--bottom-ofset);
+   }
+   &__prop{
+      color: var(--color-white);
+      font: var(--title-book);
+   }
+}

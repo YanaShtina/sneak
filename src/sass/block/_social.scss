@@ -1,0 +1,44 @@
+@import "_mixins";
+.social{
+   display: flex;
+   @include tablet{
+      justify-content: center;  
+     }
+   &__item{
+     &:not(:last-child){
+        margin-right: var(--bottom-ofset);
+     }
+   }
+    
+    &__link{
+       display: block;
+       width: 40px;
+       height: 40px;
+       background-position: center;
+       background-repeat: no-repeat;
+       background-size: cover;
+      outline: none;
+      @include desktop{
+         &:hover{
+           opacity: 0.9;
+         }    
+     }
+     
+     &:focus{
+      opacity: 0.7;
+      } 
+
+      &:active{
+  
+      opacity: 0.3;
+      }
+      &--vk{
+         background-image: url('../img/VK.svg');
+      }
+      &--insta{
+         background-image: url('../img/Instagram.svg');
+      }
+   }
+    
+    
+}

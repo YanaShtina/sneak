@@ -1,0 +1,59 @@
+.insta{
+   padding: var(--big-ofset) 0;
+
+   &__container{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      @include mobile{
+      flex-wrap: wrap;
+           }
+   }
+   &__left{
+      background-color: var(--color-EastBay);
+      width: 380px;
+      flex-shrink: 0;
+     margin-right: var(--small-ofset);
+     border-radius: 4px;
+     @include mobile{
+     width: 100%;
+        }
+   }
+   &__right{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: calc(100% - (380px + var(--big-ofset)));
+      @include mobile{
+    display: none;
+      }
+   }
+   &__title{
+      font: var(--middle-high);
+      color: var(--color-white);
+      margin-bottom: var(--bottom-ofset);
+   }
+   &__text{
+      font: var(--title-book);
+      color: var(--color-white);
+      max-width: 260px;
+      margin: 0 auto;
+      text-align: center;
+      margin-bottom: var(--main-ofset);
+   }
+
+   &__input{
+      margin-bottom: var(--small-ofset);
+   }
+   &__btn{
+     width: 100%;
+     height: 60px;
+     font: var(--title-book);
+   }
+}
+.callback-form{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: var(--main-ofset) var(--small-ofset);
+}

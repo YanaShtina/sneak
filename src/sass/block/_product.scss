@@ -1,0 +1,161 @@
+@import "_mixins";
+.product{
+ 
+   position: relative;
+
+   &__btns{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.6);
+      //visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+      &--active {
+         opacity: 1;
+      }
+      @include tablet{
+         opacity: 1;
+        }
+   }
+   &__img{
+      position: relative;
+      width: 100%;
+      max-height: 293px;
+      margin-bottom: var(--small-ofset);
+      border-radius: 4px;
+      overflow: hidden;
+   
+
+      img{
+         display: block;
+         width: 100%;
+         height: 293px;
+         object-fit: cover;
+      }
+      @include desktop{
+         &:hover {
+            .product__btns{
+               visibility: visible;
+               opacity: 1;
+            }
+            
+         }
+         
+      }
+      &:focus {
+         .product__btns{
+            visibility: visible;
+            opacity: 1;
+         }
+         
+      }
+     
+   }
+   &__title{
+      margin: 0;
+      margin-bottom: var(--small-ofset);
+      font: var(--middle-font);
+      color: var(--color-main);
+   }
+   &__price{
+      color: var(--color-main);
+      font: 600 20px / 140% 'Intro';
+   }
+   &__btn{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--color-main);
+      width: 80px;
+      height: 80px;
+      border-radius: 100%;
+      transition: background-color 0.3s ease-in-out;
+      
+      &:first-child{
+         margin-right: var(--main-ofset);
+      }
+
+
+      svg{
+         width: 30px;
+         height: 30px;
+      }
+      @include desktop{
+         &:hover{
+            background-color: var(--color-main-hover);
+         }
+      }
+    
+      &--add--disabled{
+         pointer-events: none;
+         opacity: 0.5;
+      }
+   }  
+}
+
+.mini-product{
+   display: flex;
+   align-items: center;
+   padding: var(--small-ofset) var(--bottom-ofset);
+   &__img{
+      width: 100px;
+      height: 60px;
+      flex-shrink: 0;
+      margin-right: var(--small-ofset) ;
+      img{
+         width: 100%;
+         height: 100%;
+         display: block;
+         object-fit: cover;
+      }
+      @include mobile{
+         width: 70px;
+         height: 30px;
+       }
+   }
+
+   &__text{
+      max-width: 268px;
+      margin-right: auto;
+   }
+   &__title{
+      font: var(--small-font);
+      line-height: 20px;
+      margin: 0;
+      padding: 0;
+   }
+   &__price{
+      font: 700 20px / 20px "Intro";
+      color: #4D4D4D;
+      @include mobile{
+       font-size: 16px;
+       }
+   }
+   &__content{
+      display: flex;
+      justify-content: space-between;
+      flex-grow: 1;
+      align-items:center;
+   }
+   &__delete{
+      svg{
+         pointer-events: none;
+      }
+   }
+   @include desktop{
+      &:hover{
+         background-color: rgba(204, 217, 242, 0.2);;
+      }
+   }
+ 
+}
+
+.product__btn:focus{
+ border: 1px solid red;
+}

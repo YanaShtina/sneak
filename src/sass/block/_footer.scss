@@ -1,0 +1,28 @@
+.footer{
+   background-color: var(--color-main);
+   padding: 30px 0;
+
+   &__container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include tablet{
+         flex-direction: column;
+        }
+   }
+
+   &__left{
+      @include tablet{
+         margin-bottom: var(--small-ofset);
+        }
+    
+   }
+}
+
+.footer .nav__list{
+   flex-wrap: wrap;
+}
+.footer .nav__item{
+margin-bottom: var(--bottom-ofset);
+}
+ 

@@ -1,0 +1,69 @@
+//faq-accordion
+
+.faq{
+   padding: var(--big-ofset) 0;
+   &__list{
+      max-width: 880px;
+      margin: 0 auto;
+   }
+}
+.faq-accordion{
+   border-top: 1px solid #242424;
+   border-bottom: 1px solid #242424;
+
+   &:not(:first-child){
+      margin-top: -1px;
+   }
+
+   &__control {
+      width: 100%;
+      text-align: left;
+      background-color: transparent;
+      cursor: pointer;
+      font: 400 20px / 20px "Intro";
+      color:  #242424;
+      padding: 30px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include mobile{
+         padding: var(--small-ofset);
+         }
+   }
+   &__content {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      padding-right: 70px;
+      will-change: max-height;
+      transition: all 0.3s ease-out;
+      box-sizing: content-box;
+      color: rgba(36, 36, 36, 0.5);
+      p:not(:last-child) {
+         margin-bottom: 10px;
+      }
+      @include mobile{
+         padding-right: 0px;
+      }
+   }
+   &__icon{
+      transition: transform 0.3s ease-out;
+      width: 25px;
+      height: 25px;
+      background-image: url('../img/cross.svg');
+      display: inline-block;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+   }
+  
+}
+
+.open .faq-accordion__icon {
+	transform: rotate(45deg);
+}
+
+.open .faq-accordion__content {
+	opacity: 1;
+	padding-bottom: 18px;
+}

@@ -1,0 +1,103 @@
+@import "_mixins";
+.contacts{
+   background-color:#F3F7F6;
+   padding: var(--big-ofset);
+   @include mobile{
+      padding: var(--bottom-ofset);
+      
+      }
+
+   &__container{
+      display: flex;
+      @include tablet{
+         flex-wrap: wrap; 
+      }
+   }
+   &__text{
+      margin-right:  var(--bottom-ofset);
+      width: calc(100% - (680px + var(--bottom-ofset))) ;
+      @include tablet{
+         width: 50%;
+         margin: 0 auto;
+         margin-bottom: var(--bottom-ofset);
+         text-align: center;
+      }
+      @include mobile{
+         width: 100%;
+      }
+   }
+
+
+   &__item{
+      font-style: normal;
+      margin-bottom: var(--bottom-ofset);
+      position: relative;
+   }
+   
+   &__subtitle{
+      text-transform: uppercase;
+      font: var(--small-font);
+      color: var(--color-grey);
+      margin: 0;
+      margin-bottom: var(--main-ofset);
+     
+     
+   }
+   &__phone{
+      font: var(--middle-high);
+      color: var(--color-main);
+      display: block;
+      margin-bottom: var(--bottom-ofset);
+      outline: none;
+      @include desktop{
+         &:hover{
+            color: var(--color-accent-hover);
+         }   
+       
+     }
+     @include mobile{
+      font-size: 28px;
+   } 
+     
+     &:focus{
+      color: var(--color-btn-active);
+      } 
+
+      &:active{
+      color: var(--color-btn-active);
+      opacity: 0.7;
+      }
+   }
+   &__address{
+      font:  400 18px / 140% 'Intro';
+      color: var(--color-grey);
+   }
+
+   &__map{
+      width: 680px;
+      height: 500px;
+      @include tablet{
+         width: 100%;
+      
+      }
+   }
+}
+
+@include tablet{
+  .contacts .tooltip__txt{
+     width: 280px;
+     top: calc(100% + 15px);
+     bottom: auto;
+     right: 100%;
+     transform: translateX(35%);
+    left: auto;
+    &::after{
+      right:  25%;
+      left: auto;
+      top: -8px;
+      transform: rotate(180deg);
+    }
+  }
+
+
+}

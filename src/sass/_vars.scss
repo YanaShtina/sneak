@@ -1,0 +1,42 @@
+//@import "/mixins/breakpoint.scss";
+@import "_mixins.scss";
+:root {
+  //colors
+  --color-black: #000;
+  --color-white: #fff;
+  --color-main: #444B58;
+  --color-main-hover:#31343C;
+  --color-EastBay:#484283;
+  --color-Cameo:#DBBBA9;
+  --color-grey:#B2B5BB;
+  --color-Darkgrey:#808080;
+  --color-accent:#F14F4F;
+  --color-accent-hover:#CC4949;
+  --color-border:rgba(255, 255, 255, 0.5);
+  --color-bg:#FFF4EE;
+  --color-btn-active:#8C2828;
+  //ofsets
+  --grid-gap:20px;
+  --small-ofset:10px;
+  --main-ofset:40px;
+  --bottom-ofset:20px;
+  --big-ofset:60px;
+  
+  //fonts
+  --font-family:"Intro", sans-serif;
+  --middle-high: 700 30px / 140% var(--font-family);
+  --h3-book: 400 24px / 24px var(--font-family);
+  --title-book: 400 16px / 16px var(--font-family);
+  --middle-font: 400 16px / 140% var(--font-family);
+  --small-font: 400 14px / 140% var(--font-family);
+  --text-font: 400 16px / 22.4px var(--font-family);
+}
+@include mobile{
+  :root{
+    --grid-gap:10px;
+    --small-ofset:8px;
+    --main-ofset:20px;
+    --bottom-ofset:10px;
+    --big-ofset:30px;
+  }
+ }

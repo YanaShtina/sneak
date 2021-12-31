@@ -1,0 +1,46 @@
+@import "_mixins.scss";
+.nav__list{
+   list-style: none;
+}
+.header{
+   position: fixed;
+   left: 0;
+   top: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: var(--color-EastBay);
+  &__container{
+   --padding:15px;
+
+   position: relative;
+   align-items: center;
+   padding: 10px var(--padding);
+      &::before{
+         content: '';
+         position: absolute;
+         left: 50%;
+         transform: translateX(-50%) ;
+         bottom: 0;
+         width: calc(100% - (var(--padding) * 2));
+         height: 1px;
+         background-color: var(--color-border);
+      }
+  
+  }
+  &__left{
+     grid-column: 2 span;
+  }
+  &__right{
+   display: flex;
+   justify-content: flex-end;
+   grid-column: 10 span;
+   align-items: center;
+   @include mobile{
+      grid-column: 2 span;
+      align-items: center;
+   }
+  }
+
+
+}
+

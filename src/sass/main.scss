@@ -1,0 +1,11 @@
+@import "./_settings.scss";
+// 1й вариант подключать так, тогда порядок сохранится@import "_header.scss"; 
+// @import "block/_team.scss";
+// @import "block/_header.scss";
+// @import "block/_logo.scss";
+// @import "block/_nav.scss";
+// @import "block/_team.scss";
+
+//2й вариант подключать через маску (плагин сасс глоб)
+
+@import "block/*.scss"; 

@@ -1,0 +1,196 @@
+@import "_mixins";
+.catalog {
+   margin: var(--big-ofset);
+
+   &__left{
+      grid-column: 3 span;
+      @include tablet{
+         display: none;
+      }
+   }
+   &__filters{
+      background-color: var(--color-bg);
+      border-radius: 4px;
+      padding: var(--bottom-ofset);
+   }
+
+   &__subtitle{
+      margin: 0;
+      font: var(--h3-book);
+      color: var(--color-main);
+      margin-bottom: var(--bottom-ofset);
+   }
+
+   &__caption{
+      font: var(--title-book);
+      color: var(--color-main);
+      margin-bottom: var(--small-ofset);
+   }
+
+   &__prop{
+      margin-bottom: var(--bottom-ofset);
+   }
+
+   &__prop-check{
+      display: flex;
+      justify-content: space-between;
+   }
+
+
+   &__grid{
+      grid-column: 9 span;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @include tablet{
+         grid-column: 12 span;
+      }
+   }
+
+   &__more{
+      margin-top: var( --main-ofset);
+      @include mobile{
+      width: 100%;
+      }
+   }
+   &__reset{
+      @include desktop{
+			 &:hover{
+             color: var(--color-btn-active);
+          }    
+      }
+      &:focus{
+         color: var(--color-btn-active);
+      } 
+      &:active{
+         color: var(--color-btn-active);
+      } 
+   }
+
+}
+.catalog-list{
+   grid-template-columns: repeat(9, 1fr);
+  
+   &__item{
+      grid-column: 3 span;
+      @include mobile{
+         grid-column: 4 span;
+        }
+   }
+   @include small-tablet{
+      grid-template-columns: repeat(3, 1fr);
+     }
+   @include mobile{
+      grid-template-columns: repeat(4, 1fr);
+     }
+}
+.catalog-price{
+
+   &__wrapper{
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+
+      &::before{
+         content: "";
+         position: absolute;
+         left: 50%;
+         top: 8px;
+         bottom: 8px;
+         transform: translateX(-50%);
+         width: 1px;
+         height: 34px;
+         background-color: var(--color-grey);
+      }
+   }
+   &__input{
+      width: 50%;
+      height: 50px;
+      border: 1px solid var(--color-grey);
+      text-align: center;
+      font: var(--title-book);
+      background-color: transparent;
+      color: var(--color-main);
+      // &:focus{
+      //    outline: orangered;
+      // }
+     
+
+      &:first-child{
+         border-right: none;
+         border-top-left-radius:4px ;
+         border-bottom-left-radius:4px ;
+      }
+      &:last-child{
+         border-left: none;
+         border-top-right-radius:4px ;
+         border-bottom-right-radius:4px ;
+      }
+   }
+  
+}
+.catalog-price__input {
+   &:focus{
+      outline: none;
+      border: 3px solid var(--color-grey);
+      border-radius: 4px;
+     // background-color: ;  
+   }
+   
+}
+.noUi-horizontal{
+   height: 2px;
+}
+.noUi-target{
+   background-color: var(--color-main);
+    border-radius: 4px;
+    border: none;
+    box-shadow: none;
+}
+.noUi-connect{
+   background-color: var(--color-main);
+}
+.noUi-handle{
+   border: none;
+    border-radius: 100%;
+    background: var(--color-main);
+    cursor: pointer;
+    box-shadow: none;
+}
+.noUi-horizontal .noUi-handle{
+   width: 3px;
+    height: 18px;
+}
+.noUi-handle:before, .noUi-handle:after{
+   display: none;
+}
+.noUi-horizontal .noUi-handle{
+   right: -2px;
+   top:-8px;
+}
+
+//таблица размеров
+.sizes-table{
+   border-collapse: collapse;
+   width: 100%;
+   color: var(--color-main);
+   pointer-events: painted;
+   text-align: center;
+   font: var(--title-book);
+  
+  
+   caption{
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+   }
+   td{
+      border: 1px solid var(--color-Cameo);
+      padding: 17px 5px;
+   }
+}
+.catalog-filter__btns{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
