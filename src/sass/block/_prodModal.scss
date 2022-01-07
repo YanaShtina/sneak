@@ -1,16 +1,70 @@
 @import "_mixins";
+
+
 .modal{
+   position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	width: 100%;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease-in-out;
+   z-index: 10000;
+ //display: none;
    @include tablet{
       &:before{
          display: none;
       }
      }
 }
+.modal::before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	height: 100%;
+
+}
+.modal--open{
+   opacity: 1;
+	visibility: visible;
+	transition: all 0.3s ease-in-out;
+}
+.modal__container {
+	position: relative;
+	width: 1000px;
+	margin: 50px auto;
+	//display: inline-block;
+	vertical-align: middle;
+	background-color: #fff;
+	border-radius: 10px;
+	/* padding: 20px; */
+	cursor: default;
+	text-align: left;
+	display: none;
+  // background-color: var(--color-grey);
+ 
+}
+.modal__container--open{
+   display: block;
+}
+@media (max-width: 1024px) {
+	.modal__container {
+		width: 90%;
+	}
+}
 .prod-modal{
-   
+   //display: none;
    width: 1140px;
    border-radius: 4px;
    padding: var(--main-ofset);
+   // background-color: rgba(0, 0, 0, 0.7);
 
    &__top{
       display: flex;
@@ -53,7 +107,9 @@
      
      }
 }
-
+// .modal--open{
+//   display: block;
+// }
 .modal-slider{
    margin-right: var(--bottom-ofset);
    width: calc(50% - (var(--bottom-ofset) / 2));

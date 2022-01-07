@@ -15,7 +15,7 @@ module.exports = {
       dest: pathDest + "/css"
    },
    scss: {
-      src: pathSrc + "/sass/*.{sass,scss}",
+      src: pathSrc + "/sass/**/*.{sass,scss}",
       watch: pathSrc + "/sass/**/*.{sass,scss}",
       dest: pathDest + "/css"
    },

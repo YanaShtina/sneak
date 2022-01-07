@@ -7,6 +7,7 @@
     
                <h3 class="catalog__subtitle">Подбор
                   по&nbsp;параметрам</h3>
+                  <form class="catalog__form" action="https://echo.htmlacademy.ru" method="GET">
                   <div class="catalog__prop">
                      <p class="catalog__caption">Цена, руб</p>
                      <div class="catalog__prop-iner catalog-price catalog-price__wrapper">
@@ -15,12 +16,12 @@
                      </div>
                      <div class="catalog-price__range" id="range-slider"></div>
                   </div>
-      
+               
                   <div class="catalog__prop">
                      <p class="catalog__caption">Пол</p>
                      <div class="catalog-price catalog__prop-iner catalog__prop-check">
-                        <label class="custom-checkbox">
-                           <input type="checkbox" class="custom-checkbox__field">
+                        <label class="custom-checkbox custom-checkbox--test">
+                           <input type="checkbox" class="custom-checkbox__field" name="sex" value="male">
                            <span class="custom-checkbox__content">мужской</span>
                          </label>
                          <label class="custom-checkbox">
@@ -36,19 +37,60 @@
                         <table class="sizes-table">
                            <caption> Таблица размеров</caption>
                            <tbody>
-                                 <td>35</td>
-                                 <td>36</td>
-                                 <td>37</td>
+                                 <td class="catalog-checkbox" >	
+                                
+                                    <label for="35">
+                                       <input class="catalog-checkbox__table" type="checkbox" id="35">
+                                       <span class="catalog-checkbox__content">35</span>
+                                      </label>
+                                 </td>
+                                 <td class="catalog-checkbox" >	
+                                
+                                    <label for="36">
+                                       <input class="catalog-checkbox__table" type="checkbox" id="36">
+                                       <span class="catalog-checkbox__content">36</span>
+                                      </label>
+                                 </td>
+                                 <td class="catalog-checkbox" >	
+                                
+                                    <label for="37">
+                                       <input class="catalog-checkbox__table" type="checkbox" id="37">
+                                       <span class="catalog-checkbox__content">37</span>
+                                      </label>
+                                 </td>
                               </tr>
                               <tr>
-                                 <td>38</td>
-                                 <td>39</td>
-                                 <td>40</td>
+                                 <td class="catalog-checkbox">
+                                 <label for="38">
+                                    <input class="catalog-checkbox__table" type="checkbox" id="38">
+                                    <span class="catalog-checkbox__content">38</span>
+                                   </label>
+                                 </td>
+                                 <td class="catalog-checkbox">  <label for="39">
+                                    <input class="catalog-checkbox__table" type="checkbox" id="39">
+                                    <span class="catalog-checkbox__content">39</span>
+                                   </label>
+                                 </td>
+                                 <td class="catalog-checkbox"> <label for="40">
+                                    <input class="catalog-checkbox__table" type="checkbox" id="40">
+                                    <span class="catalog-checkbox__content">40</span>
+                                   </label></td>
+                                  
                               </tr>
                               <tr>
-                                 <td>41</td>
-                                 <td>42</td>
-                                 <td>43</td>
+                                 <td class="catalog-checkbox">  <label for="41">
+                                    <input class="catalog-checkbox__table" type="checkbox" id="41">
+                                    <span class="catalog-checkbox__content">41</span>
+                                   </label></td>
+                               <td class="catalog-checkbox">    <label for="42">
+                                 <input class="catalog-checkbox__table" type="checkbox" id="42">
+                                 <span class="catalog-checkbox__content">42</span>
+                                </label></td>
+                               <td class="catalog-checkbox">    <label for="43">
+                                 <input class="catalog-checkbox__table" type="checkbox" id="43">
+                                 <span class="catalog-checkbox__content">43</span>
+                                </label></td>
+                               
                               </tr>
                            </tbody>
                         </table>
@@ -56,7 +98,9 @@
                   </div>
                   <div class="catalog-filter__btns"> 
                       <button class="btn btn-reset btn--secondary">Применить</button>
-                     <button class="btn-reset catalog__reset">сбросить</button></div>
+                     <button type="reset" class="btn-reset catalog__reset">сбросить</button></div>
+
+                  </form>
             </div>
       
          </div>
@@ -67,11 +111,11 @@
                      <div class="product__img">
                         <img src="img/productImg.jpg" alt="Продукт 1">
                         <div class="product__btns">
-                           <button class="btn-reset product__btn product__btn--show" aria-label="Показать информацию о товаре"><svg width="26" height="20" viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <button class="btn-reset product__btn product__btn--show " data-path="modal-prod" aria-label="Показать информацию о товаре"><svg width="26" height="20" viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" clip-rule="evenodd" d="M16.9518 10.0664C16.9518 12.2489 15.1818 14.0176 12.9993 14.0176C10.8168 14.0176 9.0481 12.2489 9.0481 10.0664C9.0481 7.88264 10.8168 6.11389 12.9993 6.11389C15.1818 6.11389 16.9518 7.88264 16.9518 10.0664Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                               <path fill-rule="evenodd" clip-rule="evenodd" d="M12.9975 19.1936C17.7575 19.1936 22.1113 15.7711 24.5625 10.0661C22.1113 4.3611 17.7575 0.938599 12.9975 0.938599H13.0025C8.2425 0.938599 3.88875 4.3611 1.4375 10.0661C3.88875 15.7711 8.2425 19.1936 13.0025 19.1936H12.9975Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                               </svg></button>
-                           <button class="btn-reset product__btn product__btn--add" aria-label="Добавить товар в корзину"><svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <button class="btn-reset product__btn product__btn--add"  data-path="modal-cart" aria-label="Добавить товар в корзину"><svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M20 6.57893H16.6038L13.0359 0.319309C12.8589 0.0083658 12.475 -0.093156 12.1784 0.0938088C11.8823 0.280773 11.7865 0.684867 11.9641 0.996475L15.1461 6.57893H4.85388L8.03587 0.996431C8.21348 0.684823 8.11767 0.280729 7.82164 0.0937645C7.52439 -0.0932003 7.14173 0.00832153 6.96411 0.319265L3.39617 6.57888H0V7.89468H1.35651L2.94432 16.8103C3.11033 17.7438 3.88547 18.421 4.78761 18.421H15.2124C16.1145 18.421 16.8896 17.7438 17.055 16.811L18.6434 7.89468H20C20 7.89468 20 6.57893 20 6.57893ZM15.8264 16.5688C15.7715 16.8797 15.5133 17.1053 15.2124 17.1053H4.78761C4.4867 17.1053 4.22854 16.8798 4.173 16.5681L2.62789 7.89468H17.3721L15.8264 16.5688Z" fill="white"/>
                               </svg></button>
                         </div>

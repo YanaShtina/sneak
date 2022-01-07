@@ -68,10 +68,10 @@ a {
   max-width: 1210px;
 }
 
-.js-focus-visible :focus:not(.focus-visible) {
-  outline: red;
-  border: 1px solid red;
-}
+// .js-focus-visible :focus:not(.focus-visible) {
+//   outline: red;
+//   border: 1px solid red;
+// }
 .grid{
   display: grid;
   grid-template-columns: repeat(12, 1fr);

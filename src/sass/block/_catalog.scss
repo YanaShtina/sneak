@@ -1,4 +1,8 @@
-@import "_mixins";
+//  @import "./_mixins.scss";
+ @import "../mixins/_checkbox.scss";
+// .custom-checkbox--test{
+//    display: none;
+// }
 .catalog {
    margin: var(--big-ofset);
 
@@ -185,8 +189,7 @@
       pointer-events: none;
    }
    td{
-      border: 1px solid var(--color-Cameo);
-      padding: 17px 5px;
+      border: 1px solid var(--color-Cameo)
    }
 }
 .catalog-filter__btns{
@@ -194,3 +197,36 @@
    flex-direction: column;
    align-items: center;
 }
+
+.catalog-checkbox{
+   position: relative;
+
+   
+}
+td input{
+   position: absolute;
+   top: 0;
+   left: 0;
+   // width: 80px;
+   // height: 60px;
+   opacity: 0;
+ 
+}
+td span {
+ display: inline-block;
+ width: 100%;
+ height: 100%;
+ padding: 10px 5px ;
+ &:hover{
+   cursor: pointer;
+}
+ }
+
+ .catalog-checkbox__table:checked ~ span{
+   background-color: var(--color-Cameo);
+ }
+
+// @include custom-checkbox{
+//    position: relative;
+// }
+
