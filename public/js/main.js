@@ -24,18 +24,21 @@ document.addEventListener('click', (e) => {
 
 })
 
-
-
-
 const catalogList = document.querySelector('.catalog-list');
 let prodQuantity = 6;
 const catalogMoreBtn = document.querySelector('.catalog__more');
 //let dataLenght = null
+const modalSlider = document.querySelector('.modal-slider__container swiper-wrapper');
+const modalPreview = document.querySelector('.modal-preview')
+const modalInfo = document.querySelector('.modal-info');
+const modalDescr = document.querySelector('.modal-prod-descr');
+const modalChars = document.querySelector('.prod-chars');
+const modalVideo = document.querySelector('.prod-modal__video');
 
-//if (catalogList) {
+//console.log(modalInfo)
    const loadProducts = (quantity = 3) => {
       dataAll = fetch('./data/data.json')
-   .then((response) => {
+      .then((response) => {
       //console.log(response.status)
        return response.json()
        
@@ -81,7 +84,7 @@ const catalogMoreBtn = document.querySelector('.catalog__more');
         
         function disableScroll() {
          let positionY = window.scrollY
-         console.log(positionY)
+    //     console.log(positionY)
          body.classList.add('disable-scroll')
          document.body.dataset.position = positionY;
          document.body.style.top = -positionY + 'px';
@@ -104,8 +107,6 @@ const catalogMoreBtn = document.querySelector('.catalog__more');
             
          })
       }
-      
-      
       modal.addEventListener('click', (e) => {
         
          if (e.target == modal) {
@@ -116,15 +117,70 @@ const catalogMoreBtn = document.querySelector('.catalog__more');
             })   
          }
       })
-      modalOpen () 
+        modalOpen() 
+       
      })
          
       .catch(() => {
        console.log( 'Неok' )
-      })
-      
-   }
+      }) 
+}
+   
+
    loadProducts(prodQuantity)
+   //подрузка в модалку
+   const loadModal = (id = 1) => {
+         fetch('./data/data.json')
+         .then((response) => {
+         //console.log(response.status)
+          return response.json()
+         })
+         .then((modalData) => {
+           console.log(modalData)
+            modalInfo.innerHTML = ''
+            modalDescr.innerHTML = ''
+            modalChars.innerHTML = ''
+            modalVideo.innerHTML = ''
+
+            for (let modalDataItem of modalData) {
+               if (modalDataItem.id == id) {
+                 // console.log(modalDataItem.title)
+                  modalInfo.innerHTML = `
+                  <h3 class="modal-info__title">${modalDataItem.title}</h3>
+                  <div class="modal-info__rate">
+                     <img src="img/star.svg" alt="Рейтинг 5 из 5">
+                     <img src="img/star.svg">
+                     <img src="img/star.svg">
+                     <img src="img/star.svg">
+                     <img src="img/star.svg">
+                  </div>
+                  <div class="modal-info__sizes">
+                     <p class="modal-info__subtitle">Выберите размер</p>
+                     <ul class="list--reset modal-info__sizes-list modal-sizes">
+                     // sizes
+                     </ul>
+                  </div>
+                  <div class="modal-info__price">
+                     <p class="modal-info__price-current">${modalDataItem.price} р.</p>
+                     <p class="modal-info__price-old">${modalDataItem.oldPrice ? modalDataItem.oldPrice + ' р.' : ''} </p> 
+                  
+                  </div>
+                  `
+                  modalDescr.textContent = modalDataItem.description
+
+                  modalChars.innerHTML += ``
+               }
+               
+            }
+         })
+      }
+
+      loadModal()
+
+
+
+
+
 
    // подгрузка на кнопку показать еще
    catalogMoreBtn.addEventListener('click', () => {
@@ -138,30 +194,12 @@ const catalogMoreBtn = document.querySelector('.catalog__more');
       }
    })
       
-//}
-
-//подрузка в модалку
 
 
-// btns.addEventListener('click', (e) => {
-//    console.log("btn")
-// })
-// document.addEventListener('click', (e) => {
-//    console.log(e.target)
-// })
-// btns.forEach((el) => {
-//    el.addEventListener('click', () => {
-//       console.log('я кнопка, все ок')
-//    })
-// })
-// const btns = document.querySelectorAll(".product__btn")
-// console.log(btns)
-// btns.forEach((el) => {
-//    console.log(el)
-//    el.addEventListener('click', () => {
-//       console.log("el.className")
-//    })
-// })
+
+
+
+
  
 document.addEventListener('DOMContentLoaded', () => {
 	const accordions = document.querySelectorAll('.faq-accordion');
