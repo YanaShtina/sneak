@@ -41,11 +41,7 @@ modal.addEventListener('click', (e) => {
    }
 })
 
-// слайдер внутри модалки
-const prodSlider = new Swiper('.modal-slider__container', {
-   slidesPerView: 1,
-   spaceBetween: 20
-});
+
 
   
 
