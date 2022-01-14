@@ -2,7 +2,7 @@ const cartBtn = document.querySelector('.cart__btn')
 const cartMini = document.querySelector('.mini-cart')
 cartBtn.addEventListener('click', () => {
    cartMini.classList.toggle('mini-cart--opened')
- 
+  
 })
 
 
@@ -16,3 +16,16 @@ document.addEventListener('click', (e) => {
    }
 
 })
+
+const cartOpenBtn = document.querySelector('.mini-cart__btn')
+//console.log(cartOpenBtn)
+function modalOpenCart() {
+   cartOpenBtn.addEventListener('click', (e) => {
+      let path = e.currentTarget.getAttribute('data-path');
+      const test = document.querySelector(`[data-target="${path}"]`).classList.add('modal__container--open');
+      modal.classList.add("modal--open")
+      disableScroll()
+   })
+   
+}
+modalOpenCart ()

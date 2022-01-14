@@ -311,7 +311,7 @@ const cartLogic = () => {
    })  
    })
 
-   cartList.addEventListener('click', (e) => {
+cartList.addEventListener('click', (e) => {
       if (e.target.classList.contains('mini-product__delete')) {
       
          const self = e.target
