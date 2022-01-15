@@ -1,4 +1,4 @@
-const btns = document.querySelectorAll(".product__btn")
+const btns = document.querySelectorAll(".btn__for-modal")
 const modal = document.querySelector(".modal")
 const containerModals = document.querySelectorAll(".modal__container")
 const body = document.body

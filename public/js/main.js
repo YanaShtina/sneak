@@ -47,6 +47,7 @@ const modalDescr = document.querySelector('.modal-prod-descr');
 const modalChars = document.querySelector('.prod-chars');
 const modalVideo = document.querySelector('.prod-modal__video');
 
+
 // const btnforModal = document.querySelectorAll('.product__btn')
 // console.log(btnforModal)
 // слайдер внутри модалки
@@ -78,7 +79,7 @@ const prodSlider = new Swiper('.modal-slider__container', {
                <div class="product__img">
                   <img src="${prodItem.mainImage}" alt="${prodItem.title}">
                   <div class="product__btns">
-                     <button class="btn-reset product__btn product__btn--show" data-id = "${prodItem.id}" aria-label="Показать информацию о товаре" data-path = "modal-prod">
+                     <button class="btn-reset btn__for-modal product__btn product__btn--show" data-id = "${prodItem.id}" aria-label="Показать информацию о товаре" data-path = "modal-prod">
                      <svg width="26" height="20" viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M16.9518 10.0664C16.9518 12.2489 15.1818 14.0176 12.9993 14.0176C10.8168 14.0176 9.0481 12.2489 9.0481 10.0664C9.0481 7.88264 10.8168 6.11389 12.9993 6.11389C15.1818 6.11389 16.9518 7.88264 16.9518 10.0664Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M12.9975 19.1936C17.7575 19.1936 22.1113 15.7711 24.5625 10.0661C22.1113 4.3611 17.7575 0.938599 12.9975 0.938599H13.0025C8.2425 0.938599 3.88875 4.3611 1.4375 10.0661C3.88875 15.7711 8.2425 19.1936 13.0025 19.1936H12.9975Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -98,7 +99,7 @@ const prodSlider = new Swiper('.modal-slider__container', {
          }
      
         }
-        const btns = document.querySelectorAll(".product__btn")
+        const btns = document.querySelectorAll(".btn__for-modal")
         const modal = document.querySelector(".modal")
         const containerModals = document.querySelectorAll(".modal__container")
         const body = document.body
@@ -299,20 +300,26 @@ const OpenModalLoad = () => {
   
 
 //* ЗАГРКЗКА В КОРЗИНУ*/
-
 const miniCart = document.querySelector('.mini-cart')
 const miniCartList = document.querySelector('.mini-cart__list')
 const cartCounter = document.querySelector('.cart__counter')
 const miniCartSum = document.querySelector('.mini-cart__sum')
+let sumOfPrice = 0
 
 
-//функция для вывода количества товаров в корзине
-const showQuantity = (numberOfItem) => {
-  // console.log(cartCounter.textContent )
-   cartCounter.textContent = numberOfItem
+
+const sumPrice = (price) => {
+   return sumOfPrice+= price
 }
-//showQuantity ()
-const loadCart = (id = 1) => {
+const printSumPrice = (sumOfPrice) => {
+   miniCartSum.textContent = sumOfPrice
+}
+const showQuantity = (miniCartItem) => {
+   cartCounter.classList.add('cart__counter--visible')
+    cartCounter.textContent = miniCartItem   
+ }
+
+const loadCart = (btnAddId) => {
    //console.log('cartdfdf')
    let data = fetch('./data/data.json')
       .then((response) => {
@@ -320,10 +327,10 @@ const loadCart = (id = 1) => {
     
       })
       .then((cartData) => {
-       //  console.log(cartData)
+       //console.log(cartData)
          for (let dataItem of cartData) {
-            console.log(dataItem)
-            if (dataItem.id == id) {
+           
+            if (dataItem.id == btnAddId) {
                miniCartList.insertAdjacentHTML('afterBegin', `
             <li class="mini-cart__item" data-id= "${dataItem.id}">
             <article class="mini-cart__product mini-product">
@@ -345,17 +352,26 @@ const loadCart = (id = 1) => {
               </div>
             </article>
           </li>
-            `)}
-           return  dataItem
-        }
-      })
-      .then((cartItem) => {
+            ` )
+            //console.log(dataItem)
+            return  dataItem
+            }
+         }
+         
+         } 
+      )
+      .then((CartItem) => {
+         const miniCartItem = document.querySelectorAll('.mini-cart__item').length
+         showQuantity(miniCartItem)
+         sumPrice(CartItem.price)
+         printSumPrice(sumOfPrice)
          // тут изменеие количества в корзине и вывод общей суммы
          // для вывода общей суммы добавить функцию
-       // console.log(cartItem)
+      //console.log(CartItem.price)
      })
 }
-//loadCart ()
+
+
 const addToCart = () => {
    const btnAdd = [...document.querySelectorAll('.product__btn--add')]
    //console.log(btnAdd)
@@ -364,12 +380,15 @@ const addToCart = () => {
          //console.log('Я кнопка в корзину')
          const btnAddId = e.currentTarget.dataset.id
          //console.log(btnAddId)
-         loadCart (btnAddId)
-         // тут функция, которая сделает значек корзины активным
+        loadCart (btnAddId)
+        //showAmount()
+        
       })
    })
 }
-//addToCart()
+
+
+
 
  
 
@@ -405,7 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-const btns = document.querySelectorAll(".product__btn")
+const btns = document.querySelectorAll(".btn__for-modal")
 const modal = document.querySelector(".modal")
 const containerModals = document.querySelectorAll(".modal__container")
 const body = document.body
