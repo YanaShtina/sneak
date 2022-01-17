@@ -5,7 +5,7 @@ const body = document.body
 
 function disableScroll() {
    let positionY = window.scrollY
-   console.log(positionY)
+  // console.log(positionY)
    body.classList.add('disable-scroll')
    document.body.dataset.position = positionY;
 	document.body.style.top = -positionY + 'px';

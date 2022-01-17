@@ -1,7 +1,13 @@
 const cartBtn = document.querySelector('.cart__btn')
 const cartMini = document.querySelector('.mini-cart')
 cartBtn.addEventListener('click', () => {
-   cartMini.classList.toggle('mini-cart--opened')
+   if (!miniCartList.children.length == 0) {
+      cartMini.classList.toggle('mini-cart--opened')
+      //console.log(miniCartList.children.length)
+   }
+   else {
+      alert('Корзина пуста, пожалуйста, добавьте товары')
+   }
   
 })
 
@@ -28,4 +34,9 @@ function modalOpenCart() {
    })
    
 }
-modalOpenCart ()
+modalOpenCart()
+
+//* финальное оформление заказа*/
+
+
+
