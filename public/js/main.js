@@ -7,6 +7,7 @@ burger.addEventListener('click', () => {
 })
 const cartBtn = document.querySelector('.cart__btn')
 const cartMini = document.querySelector('.mini-cart')
+const closeBtn = document.querySelector('.modal__close')
 cartBtn.addEventListener('click', () => {
    if (!miniCartList.children.length == 0) {
       cartMini.classList.toggle('mini-cart--opened')
@@ -17,8 +18,11 @@ cartBtn.addEventListener('click', () => {
    }
   
 })
-
-
+//console.log(closeBtn)
+// closeBtn.addEventListener('click', (e) => {
+//    document.querySelector('.modal').classList.remove('modal--open')
+     
+// })
 document.addEventListener('click', (e) => {
    if (!e.target.classList.contains('mini-cart') &&
       !e.target.closest('mini-cart') &&
@@ -31,6 +35,7 @@ document.addEventListener('click', (e) => {
 })
 
 const cartOpenBtn = document.querySelector('.mini-cart__btn')
+
 //console.log(cartOpenBtn)
 function modalOpenCart() {
    cartOpenBtn.addEventListener('click', (e) => {
@@ -491,7 +496,7 @@ function modalOpen (){
 
 modal.addEventListener('click', (e) => {
   
-   if (e.target == modal) {
+   if (e.target == modal || e.target.classList.contains('modal__close')) {
      modal.classList.remove("modal--open")
       containerModals.forEach(el => {
          el.classList.remove('modal__container--open')
@@ -505,32 +510,33 @@ modal.addEventListener('click', (e) => {
   
 
 
-const quizData = [{
+const quizData = [
+	{
    number: 1,
    title: "Какой тип кроссовок рассматриваете?",
    answer_alias: "type",
    answers: [{
-         answer_title: "кеды",
+         answer_title: "Вариант 1",
          type: "checkbox"
       },
       {
-         answer_title: "кеды",
+         answer_title: "Вариант 2",
          type: "checkbox"
       },
       {
-         answer_title: "кеды",
+         answer_title: "Вариант 3",
          type: "checkbox"
       },
       {
-         answer_title: "кеды",
+         answer_title: "Вариант 4",
          type: "checkbox"
       },
       {
-         answer_title: "кеды",
+         answer_title: "Вариант 5",
          type: "checkbox"
       },
       {
-         answer_title: "кеды",
+         answer_title: "Вариант 5",
          type: "checkbox"
       },
    ]
@@ -708,7 +714,7 @@ class Quiz {
 
 			}
 		} else {
-			console.log('Не валидно!')
+			alert('Заполните поле')
 		}
 	}
 

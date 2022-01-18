@@ -1,29 +1,30 @@
-const quizData = [{
+const quizData = [
+	{
    number: 1,
    title: "Какой тип кроссовок рассматриваете?",
    answer_alias: "type",
    answers: [{
-         answer_title: "кеды",
+         answer_title: "Вариант 1",
          type: "checkbox"
       },
       {
-         answer_title: "кеды",
+         answer_title: "Вариант 2",
          type: "checkbox"
       },
       {
-         answer_title: "кеды",
+         answer_title: "Вариант 3",
          type: "checkbox"
       },
       {
-         answer_title: "кеды",
+         answer_title: "Вариант 4",
          type: "checkbox"
       },
       {
-         answer_title: "кеды",
+         answer_title: "Вариант 5",
          type: "checkbox"
       },
       {
-         answer_title: "кеды",
+         answer_title: "Вариант 5",
          type: "checkbox"
       },
    ]
@@ -201,7 +202,7 @@ class Quiz {
 
 			}
 		} else {
-			console.log('Не валидно!')
+			alert('Заполните поле')
 		}
 	}
 

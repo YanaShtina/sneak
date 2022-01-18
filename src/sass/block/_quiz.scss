@@ -47,18 +47,36 @@
       grid-template-columns: repeat(3, 1fr);
       gap: var(--bottom-ofset) 70px;
       padding-bottom: var(--main-ofset);
+      @include tablet{
+         gap: var(--small-ofset) 30px;
+      }
+      @include small-tablet{
+         grid-auto-rows: 115px;
+         padding-bottom: var(--small-ofset);
+      }
       @include mobile{
          // grid-auto-rows: 100px;
          // gap: var(--bottom-ofset);
-         display: block;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
       }
    }
    &__item{
       img{
          margin-bottom: var(--bottom-ofset);
+         @include tablet{
+            margin-bottom: var(--small-ofset);
+         }
+         @include mobile{
+            margin-bottom: var(--bottom-ofset);
+            }
       }
       @include mobile{
       margin-bottom: var(--bottom-ofset);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       }
    }
    &__textarea{
@@ -139,6 +157,11 @@
    }
 }
 .quiz-question__answers .custom-checkbox__content{
+   @include small-tablet{
+     
+      font-size: 14px;
+    }
+  
    @include mobile{
       padding-left: 20px;
       font-size: 12px;

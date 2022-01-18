@@ -315,7 +315,16 @@
 }
 
 .modal__close{
-   display: none;
+  // display: none;
+  display: block;
+   position: absolute;
+   z-index: 20000;
+  background: url("../img/cross.svg") no-repeat center;
+  width: 25px;
+  height: 25px;
+  right: 15px;
+  top: 5px;
+  transform: rotate(45deg);
    @include tablet{
       display: block;
       z-index: 100;

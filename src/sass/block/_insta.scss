@@ -2,7 +2,7 @@
    padding: var(--big-ofset) 0;
 
    &__container{
-      display: flex;
+      display: block;
       justify-content: space-between;
       align-items: flex-end;
       @include mobile{
@@ -11,10 +11,12 @@
    }
    &__left{
       background-color: var(--color-EastBay);
-      width: 380px;
+      width: 50%;
       flex-shrink: 0;
      margin-right: var(--small-ofset);
      border-radius: 4px;
+     margin-right: auto;
+     margin-left: auto;
      @include mobile{
      width: 100%;
         }

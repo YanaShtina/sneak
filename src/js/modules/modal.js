@@ -32,7 +32,7 @@ function modalOpen (){
 
 modal.addEventListener('click', (e) => {
   
-   if (e.target == modal) {
+   if (e.target == modal || e.target.classList.contains('modal__close')) {
      modal.classList.remove("modal--open")
       containerModals.forEach(el => {
          el.classList.remove('modal__container--open')

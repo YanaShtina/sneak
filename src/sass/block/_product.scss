@@ -21,6 +21,8 @@
       }
       @include tablet{
          opacity: 1;
+         top:70%;
+         height: 30%;
         }
    }
    &__img{
@@ -91,6 +93,10 @@
             background-color: var(--color-main-hover);
          }
       }
+      @include tablet{
+         width: 50px;
+         height: 50px;
+        }
     
       &--add--disabled{
          pointer-events: none;
