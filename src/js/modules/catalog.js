@@ -322,14 +322,30 @@ const loadCart = (btnAddId) => {
    .then(() => {
       {
          
-         const miniCartQuantity = document.querySelectorAll('.mini-cart__item')
+         const miniCartQuantity = [...document.querySelectorAll('.mini-cart__item')]
          const miniCartSum = document.querySelector('.cart-modal-order__sum span')
-         const miniCartShowBtn = document.querySelectorAll('.cart-modal-order__btn--show')
          const cartModalOrderQuantity = document.querySelector('.cart-modal-order__quantity span')
+
+         const miniCartShowBtn = document.querySelector('.cart-modal-order__btn--show')
+         const cartModalOrderList = document.querySelector('.cart-modal-order__list')
+       
          cartModalOrderQuantity.textContent = miniCartQuantity.length + ' шт.'
          miniCartSum.textContent = sumOfPrice + ' p.'
 
-         console.log(miniCartSum)
+         const miniCartArr = miniCartQuantity
+         
+        // console.log(miniCartArr)
+
+         miniCartShowBtn.addEventListener('click', (e) => {
+        
+            //cartModalOrderList.innerHTML = 'dfd'
+           const prodListForCopy = document.querySelector('.mini-cart__list').innerHTML
+            //console.log(prodListForCopy)
+          cartModalOrderList.innerHTML = prodListForCopy
+          cartModalOrderList.classList.toggle('cart-modal-order__list--open')
+         })
+
+         //console.log(miniCartShowBtn)
          
 
 

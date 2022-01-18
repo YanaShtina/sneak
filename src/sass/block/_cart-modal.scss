@@ -95,7 +95,7 @@
              }
    }
    &__list{
-      display: none;
+    display: none;
       &--open{
          display: block;
       }
@@ -107,6 +107,7 @@
 
 .cart-modal{
    padding-top: var(--small-ofset);
+   height: 100vh;
    .mini-product{
       display: flex;
       align-items: center;

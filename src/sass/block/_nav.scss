@@ -1,6 +1,7 @@
 
 @import "./_vars.scss";
 @import "./mixins/_breakpoint.scss";
+
 .nav{
    &__list{
       display: flex;
@@ -9,6 +10,9 @@
    &__item{
       &:not(:last-child){
          margin-right: var(--main-ofset);
+         @include tablet{
+            margin-right: 28px;
+         }
       }
    }
    &__link{
@@ -43,10 +47,13 @@
       } 
   
    }
+   @include small-tablet{
+      display: none;
+   }
 }
 .header__nav-mobile {
    display: none;
-   @include tablet{
+   @include small-tablet{
       display: none; 
       &--active{
          display: block;
@@ -66,6 +73,7 @@
    .nav__item{
       margin: 0;
       margin-bottom: var(--small-ofset);
+     
    }
    // .nav__item:not(:last-child){
       
