@@ -13,10 +13,7 @@ const imgWebPHtml = require("gulp-webp-html")
 const gulpIf = require("gulp-if")
 
 const html = ()=> {
-   return src(path.html.src) // обеспечивает поток содержимого файла до конечной папки
-      // маски - можем управлять какие файлы брать в обработку, а какие нет. В нашем примере берем все html файлы в директории src
-
-   // плагины
+   return src(path.html.src) 
    .pipe(plumber({
       errorHandler: notify.onError(error => (
          {
@@ -24,13 +21,13 @@ const html = ()=> {
             message: error.message
             }
          ))
-   })) // добавляем в самом начале потока, будет перехватывать все ошибки
-   .pipe(fileInclude()) // просто вызываем. Сначала поток пройдет через все плагины
+   })) 
+   .pipe(fileInclude()) 
    .pipe(imgWebPHtml())
    .pipe(size({ title: "До сжатия" }))
    .pipe(htmlmin(gulpIf(app.isProd,app.htmlmin)))
    .pipe(size({ title: "После сжатия" }))
-   .pipe(dest(path.html.dest)) // конечная папка. В самом конце
+   .pipe(dest(path.html.dest)) 
   
 }
 

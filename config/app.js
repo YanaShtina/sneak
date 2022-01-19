@@ -1,3 +1,6 @@
+
+// !!!!!*Данный функционал не используется на проекте Sneak, для запуска проекта инструкция в файле ридми*
+
 const isProd = process.argv.includes("--production");
 const isDev = !isProd
 

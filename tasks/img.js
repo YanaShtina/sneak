@@ -23,13 +23,13 @@ const img = ()=> {
             }
          ))
    })) 
-      .pipe(imgNewer(path.img.dest)) // как фильтр, не пропускает те файлы, которые были ранее обработаны. В качестве значения путь к директории с конечными файлами
+      .pipe(imgNewer(path.img.dest)) 
       .pipe(imgWebP())
       .pipe(dest(path.img.dest))
       .pipe(src(path.img.src))
       .pipe(imgNewer(path.img.dest))
    .pipe(imgMin(app.imgMin))
-   .pipe(dest(path.img.dest)) // конечная папка. В самом конце
+   .pipe(dest(path.img.dest)) 
 }
 
 module.exports = img;

@@ -22,7 +22,7 @@ const cssimport = require("gulp-cssimport")
 //
 const scss = ()=> {
    return src(path.scss.src) 
-   .pipe(gulpIf(app.isDev, sourcemaps.init() )) // gulpIf() - 1й парамертр условие, 2й параметр - плагин для данного уловия
+   .pipe(sourcemaps.init()) //
       .pipe(plumber(
          // {errorHandler: notify.onError(error => ({
          //    title: 'CSS',
@@ -31,25 +31,13 @@ const scss = ()=> {
          // ))
          // }
       ))
-   // добавляем в самом начале потока, будет перехватывать все ошибки
-   
       .pipe(sassGlob())
       .pipe(sass())
-      // .pipe(imgWebPCss())
       .pipe(autoprefixer())
-      // .pipe(groupCssMedia())
-      // .pipe(size({ title: "До сжатия css" }))
       .pipe(sourcemaps.write() )
-       .pipe(cssimport())
-     
+      .pipe(cssimport())
       .pipe(dest(path.css.dest))
-     
-   //   .pipe(rename({ suffix: ".min"}))
-   //    .pipe(csso())
-   //    .pipe(size ({ title: "после сжатия css" }))
       .pipe(sourcemaps.write() )
-   .pipe(dest(path.css.dest)) // конечная папка. В самом конце
-  
+      .pipe(dest(path.css.dest)) 
 }
-
 module.exports = scss;
