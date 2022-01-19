@@ -1,6 +1,6 @@
 const { watch, series, parallel } = require("gulp");
 const sync = require("browser-sync").create();
-//series, parallel - для работы с очерелью задач
+
 
 //конфигурация
 const path = require("./config/path.js")
@@ -59,10 +59,7 @@ exports.watch = watcher;
 exports.clear = clear; 
 
 
-//порядок задач для всей сборки
-//exports.dev = dev; // запускаем сервер + наблюдения
-//exports.build = build; // просто собираем файлы
-
+// !!!!!*Данный функционал не используется на проекте Sneak, для запуска проекта инструкция в файле ридми* 
 exports.default = app.isProd ? build : dev
 
 
