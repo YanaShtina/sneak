@@ -3,8 +3,9 @@
 
 Для корректной работы сайта, необходимо собарать проект
 1. git clone https://github.com/YanaShtina/sneak 
-2. npm i
-3. gulp
+2. cd sneak
+3. npm i
+4. gulp
 
 Каталог товаров
 Подгрузка товаров через fetch запрос к файлу data.json
