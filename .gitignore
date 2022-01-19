@@ -2,3 +2,4 @@ node_modules
 package-lock
 notUsed
 css.js
+data/testdata.json

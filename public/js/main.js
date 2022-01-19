@@ -577,17 +577,6 @@ const quizData = [
    },
    ]
    },
-   // {
-   //    number: 4,
-   //    title: "Оставьте свой телефон, мы вам перезвоним",
-   //    answer_alias: "phone",
-   //    answers: [
-   //       {
-   //       answer_title: "Введите телефон",
-   //       type: "text"
-   //    },
-   //    ]
-   // }
 ];
 
 
@@ -658,7 +647,7 @@ class Quiz {
 	}
 
 	nextQuestion() {
-		console.log('next question!');
+	//	console.log('next question!');
 
 		if (this.valid()) {
 			if (this.counter + 1 < this.dataLength) {
@@ -679,9 +668,7 @@ class Quiz {
 				document.querySelector('.quiz__form').addEventListener('submit', (e) => {
 					//console.log('send')
 					e.preventDefault();
-					// if () {
-						
-					// }
+				
 				
 					const quizFormData = new FormData();
 
@@ -692,24 +679,7 @@ class Quiz {
 						}
 						
 					}
-					console.log(this.resultArray)
-					//quizFormData.append('textarea', textareaText);
-				
-					// let xhr = new XMLHttpRequest();
-   
-					// xhr.onreadystatechange = function() {
-					// 	if (xhr.readyState === 4) {
-					// 		if (xhr.status === 200) {
-					// 			console.log('Отправлено');
-					// 		}
-					// 	}
-					// }
-					
-		
-					// xhr.open('POST', 'mail.php', true);
-					// xhr.send(quizFormData);
-		
-					// document.querySelector('.quiz__form').reset();
+				//	console.log(this.resultArray)
 				})
 
 			}
@@ -842,182 +812,7 @@ class Quiz {
 	}
 }
 
-// class Quiz {
-// 	constructor(selector, data, options) {
-// 		this.$el = document.querySelector(selector);
-// 		this.options = options;
-// 		this.data = data;
-// 		this.counter = 0;
-// 		this.dataLength = this.data.length;
-// 		this.resultArray = [];
-// 		this.tmp = {};
-// 		this.init()
-// 		this.events()
-// 	}
 
-// 	init() {
-// 		console.log('init!');
-// 		this.$el.innerHTML = quizTemplate(this.data[this.counter], this.dataLength, this.options);
-// 	}
-
-// 	nextQuestion() {
-// 		console.log('next question!');
-
-// 		if (this.valid()) {
-// 			if (this.counter + 1 < this.dataLength) {
-// 				this.counter++;
-// 				this.$el.innerHTML = quizTemplate(this.data[this.counter], this.dataLength, this.options);
-
-// 				if ((this.counter + 1 == this.dataLength)) {
-//           document.querySelector('.quiz-question__answers').style.display = 'block';
-// 				}
-// 			} else {
-// 				console.log('А все! конец!');
-//         document.querySelector('.quiz__content').style.display = 'none';
-//         document.querySelector('.quiz__last-quastion').style.display = 'block';
-//         document.querySelector('.quiz__title').textContent = 'Ваша подборка готова!';
-//         document.querySelector('.quiz__desc').textContent = 'Оставьте свои контактные данные, чтобы бы мы могли отправить  подготовленный для вас каталог';
-
-//         document.querySelector('.quiz__form').addEventListener('submit', (e) => {
-//           e.preventDefault();
-
-//           quizFormData = new FormData();
-
-
-//           for (let item of this.resultArray) {
-//             for (let obj in item) {
-//               quizFormData.append(obj, item[obj].substring(0, item[obj].length - 1));
-//             }
-//           }
-
-//           quizFormData.append('textarea', textareaText);
-
-//           let xhr = new XMLHttpRequest();
-
-//           xhr.onreadystatechange = function() {
-//             if (xhr.readyState === 4) {
-//               if (xhr.status === 200) {
-//                 console.log('Отправлено');
-//               }
-//             }
-//           }
-
-//           document.querySelector('.quiz__form').querySelectorAll('input').forEach(el => {
-//             if (el.value) {
-//               xhr.open('POST', 'mail.php', true);
-//               xhr.send(quizFormData);
-
-//               document.querySelector('.quiz__form').reset();
-//             }
-//           });
-
-
-//         });
-
-//       }
-// 		} else {
-// 			console.log('Не валидно!')
-// 		}
-// 	}
-
-// 	events() {
-// 		console.log('events!')
-// 		this.$el.addEventListener('click', (e) => {
-// 			if (e.target == document.querySelector('[data-next-btn]')) {
-// 				this.addToSend();
-// 				this.nextQuestion();
-// 			}
-// 		});
-
-// 		this.$el.addEventListener('change', (e) => {
-// 			if (e.target.tagName == 'INPUT') {
-// 				if (e.target.type !== 'checkbox' && e.target.type !== 'radio') {
-// 					let elements = this.$el.querySelectorAll('input')
-
-// 					elements.forEach(el => {
-// 						el.checked = false;
-// 					});
-// 				}
-// 				this.tmp = this.serialize(document.querySelector('.quiz__form'));
-// 			} else {
-//         let textarea = this.$el.querySelector('textarea');
-//         textareaText = textarea.value;
-//       }
-// 		});
-// 	}
-
-// 	valid() {
-// 		let isValid = false;
-
-//     let textarea = this.$el.querySelector('textarea');
-
-//     if (textarea) {
-//       if (textarea.value.length > 0) {
-//         isValid = true;
-//         return isValid;
-//       }
-//     }
-
-
-// 		let elements = this.$el.querySelectorAll('input');
-// 		elements.forEach(el => {
-// 			switch(el.nodeName) {
-// 				case 'INPUT':
-// 					switch (el.type) {
-// 						case 'text':
-// 							if (el.value) {
-// 								isValid = true;
-// 							} else {
-// 								el.classList.add('error')
-// 							}
-// 						case 'checkbox':
-// 							if (el.checked) {
-// 								isValid = true;
-// 							} else {
-// 								el.classList.add('error')
-// 							}
-// 						case 'radio':
-// 							if (el.checked) {
-// 								isValid = true;
-// 							} else {
-// 								el.classList.add('error')
-// 							}
-// 					}
-// 			}
-// 		});
-
-// 		return isValid;
-// 	}
-
-// 	addToSend() {
-// 		this.resultArray.push(this.tmp)
-// 	}
-
-// 	serialize(form) {
-// 		let field, s = {};
-// 		let valueString = '';
-// 		if (typeof form == 'object' && form.nodeName == "FORM") {
-// 			let len = form.elements.length;
-// 			for (let i = 0; i < len; i++) {
-// 				field = form.elements[i];
-
-// 				if (field.name && !field.disabled && field.type != 'file' && field.type != 'reset' && field.type != 'submit' && field.type != 'button') {
-// 					if (field.type == 'select-multiple') {
-// 						for (j = form.elements[i].options.length - 1; j >= 0; j--) {
-// 							if (field.options[j].selected)
-// 								s[s.length] = encodeURIComponent(field.name) + "=" + encodeURIComponent(field.options[j].value);
-// 						}
-// 					} else if ((field.type != 'checkbox' && field.type != 'radio' && field.value) || field.checked) {
-// 						valueString += field.value + ',';
-
-// 						s[field.name] = valueString;
-// 					}
-// 				}
-// 			}
-// 		}
-// 		return s
-// 	}
-// }
 
 window.quiz = new Quiz('.quiz__form .quiz__content', quizData, {
 	nextBtnText: "Следующий шаг",
